@@ -18,7 +18,7 @@ const sendDeleteMail = (email, name) => {
         to: email,
         from: 'sumer2000pasin@gmail.com',
         subject: 'Task Manger: Sorry to let you go.',
-        text: `We are sorry to let you go, ${name}. Please us feedback where we lost you! :(`
+        text: `${name}, we are sorry to let you go. :(`
     })
 }
 

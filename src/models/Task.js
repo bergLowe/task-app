@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
 const taskSchema = mongoose.Schema({
-    description: {
+    title: {
         type: String,
         required: true,
+        trim: true
+    },
+
+    description: {
+        type: String,
         trim: true
     },
 
@@ -19,6 +24,11 @@ const taskSchema = mongoose.Schema({
     }
 }, {
     timestamps: true
+});
+
+taskSchema.pre('save', function (next) {
+    this.title = this.title.trim()[0].toUpperCase() + this.title.slice(1).toLowerCase();
+    next();
 });
 
 const Task = mongoose.model('Task', taskSchema);
