@@ -5,6 +5,7 @@ require('./db/mongoose');
 // Code for get, post or patch are divided into two files.
 const userRouter = require('./routers/user');
 const taskRouter = require('./routers/task');
+const  { remindTask } = require('./scheduler/remindTask');
 
 const app = express();
 const port = process.env.PORT;
@@ -30,6 +31,7 @@ app.use(express.json())
 app.use(userRouter);
 app.use(taskRouter);
 
+remindTask();
 
 app.listen(port, () => {
     console.log("Port is running on " + port);

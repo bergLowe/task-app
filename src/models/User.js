@@ -74,7 +74,7 @@ userSchema.virtual('tasks', {
 userSchema.methods.generateAuthToken = async function () {
     const user = this;
 
-    // "thisistokenvalue" should be same everywhere when verification is needed for
+    // "tokenValue" should be same everywhere when verification is needed for
     // jsonwebtoken.
     // Generates token. (Below code)
     const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET);
