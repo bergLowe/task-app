@@ -7,7 +7,7 @@ const sendReminderMail = (email) => {
         to: email,
         from: 'sumer2000pasin@gmail.com',
         subject: 'Task Manger: Tasks',
-        text: `Your task are not completed. Please login.`
+        text: `Reminder, your tasks are incomplete!. Please login to see the unfinished tasks.`
     })
 }
 
@@ -20,8 +20,8 @@ const remindTask = async () => {
     } else {
         let list = [];
         task.forEach(async (el) => {
-            if (!(list.includes(el.owner))) {
-                list.push(el.owner);
+            if (!(list.includes(el.owner.toString()))) {
+                list.push(el.owner.toString());
                 let user = await User.findById(el.owner);
                 sendReminderMail(user.email);
             }

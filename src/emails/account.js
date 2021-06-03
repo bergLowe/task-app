@@ -7,7 +7,7 @@ const sendWelcomeMail = (email, name) => {
         to: email,
         from: 'sumer2000pasin@gmail.com',
         subject: 'Task Manager: Thank for Joining!',
-        text: `Welcome ${name}, thank you for joining us. Now get your reminder all at one place. :)`
+        text: `Welcome ${name}, thank you for joining us. Now get your reminder all at one place.😀`
     })
 }
 
