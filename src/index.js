@@ -10,6 +10,11 @@ const  { remindTask } = require('./scheduler/remindTask');
 const app = express();
 const port = process.env.PORT;
 
+const cors = require('cors');
+app.use(cors({
+    origin: ['http://localhost:3000']
+}));
+
 // Express middleware.
 // It gets new request, then it will perform some operation like below.
 // If its valid then will go to next() operation, otherwise else.
